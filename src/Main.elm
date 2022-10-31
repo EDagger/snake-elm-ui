@@ -41,7 +41,7 @@ view model =
             column
                 []
             <|
-                List.indexedMap (\j a -> asdf j model.x ) (List.repeat model.x (fieldRow model.y))
+                List.indexedMap (\j a -> headRed j model.x ) (List.repeat model.x (fieldRow model.y))
 cell : Element msg
 cell = el [ Border.color <| rgb255 255 255 255, Border.width 2, Background.color <| rgb255 50 20 20, width (px 20), height (px 20) ] Element.none
 
@@ -54,8 +54,8 @@ fieldRowRed yRed = Element.row [] ((List.indexedMap (\i a -> foo i) (List.repeat
 fieldRow : Int -> Element msg
 fieldRow y = Element.row [] (List.repeat y cell)
 
-asdf: Int -> Int -> Element msg
-asdf xx yy = if (xx == 4) then (fieldRowRed yy) else (fieldRow yy)
+headRed: Int -> Int -> Element msg
+headRed xx yy = if (xx == 4) then (fieldRowRed yy) else (fieldRow yy)
 
 subscriptions : a -> Sub msg
 subscriptions _ = Sub.none
